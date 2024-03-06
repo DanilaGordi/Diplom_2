@@ -8,10 +8,10 @@ from data import ErrorMessage
 @allure.feature('Проверяем создание заказа')
 class TestApiCreateOrder:
     @allure.title('Тест создания заказа для авторизованного пользователя')
-    def test_auth_user_create_order_successful(self, user_token):
-        token = user_token
+    def test_auth_user_create_order_successful(self, token):
+        user_token = token
         payload = Ingredients.INGREDIENTS
-        response = requests.post(EndpointsUrl.ORDER, headers={'Authorization': token}, data=payload)
+        response = requests.post(EndpointsUrl.ORDER, headers={'Authorization': user_token}, data=payload)
         assert response.status_code == 200 and response.json()['success']
 
     @allure.title('Тест создания заказа с ингридиентами без авторизации')
