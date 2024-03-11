@@ -1,5 +1,5 @@
 import allure
-from conftest import *
+import requests
 from data import EndpointsUrl
 from data import Ingredients
 from data import ErrorMessage
